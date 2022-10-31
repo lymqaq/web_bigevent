@@ -25,15 +25,7 @@ function getUserInfo() {
 
         renderAvatar(res.data)
       },
-      complete:function(res){
-        if(res.responseJSON.status === 1 && res.responseJSON.message ===
-            '身份认证失败！' ){
-            // 1.清空token
-            localStorage.removeItem('token')
-            // 2.强制跳转
-            location.href = './login.html'
-        }
-      }
+      
 
      })
     }
@@ -46,7 +38,7 @@ function getUserInfo() {
         // 按需渲染用户的头像
         if(user.user_pic !== null) {
             // 有头像的情况，渲染图片头像
-            $('.layui-nav-img').attr('src',user_pic).show()
+            $('.layui-nav-img').attr('src',user.user_pic).show()
             $('.text-avatar').hide()
 
         }
